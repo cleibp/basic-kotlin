@@ -1,5 +1,7 @@
 import java.util.Scanner
 
+enum class Cor { Vermelho, Verde, Azul, Amarelo, Laranja }
+
 fun main() {
 
     val myObj = Scanner(System.`in`)
@@ -209,6 +211,41 @@ fun main() {
   println("Não tem PONTEIRO \n");
   println(" Não é necessário liberar memória manualmente, como em C ou C++. A variável será automaticamente coletada pelo coletor de lixo quando não estiver mais em uso. \n");
   println("");
+
+
+  // TRY CATCH
+  println("### TRY CATCH ###\n");
+  try {
+      
+      print("Informe o valor 1 para o dividendo: ")
+      val numero1 = readLine()!!.toDouble()
+
+      print("Informe o valor 2 para o divisor: ")
+      val numero2 = readLine()!!.toDouble()
+      
+      if (numero2 == 0.0) {
+          throw Exception("Divisão por zero não é permitida!")
+      }
+
+      val resultado = numero1 / numero2
+      println("Resultado da divisão: %.2f".format(resultado))
+  } catch (e: Exception) {
+      println("Ocorreu uma exceção: ${e.message}")
+  }
+  println("");
+
+  // ENUM
+  println("### ENUM ###\n");
+  val minhaCor = Cor.Azul
+
+  when (minhaCor) {
+      Cor.Vermelho -> println("Minha cor favorita é vermelho.")
+      Cor.Verde -> println("Minha cor favorita é verde.")
+      Cor.Azul -> println("Minha cor favorita é azul.")
+      Cor.Amarelo -> println("Minha cor favorita é amarelo.")
+      Cor.Laranja -> println("Minha cor favorita é laranja.")
+      else -> println("Eu não tenho uma cor favorita.")
+  }
      
 }
 
